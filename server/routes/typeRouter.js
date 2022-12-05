@@ -4,7 +4,7 @@ const checkRole = require("../middleware/checkRoleMiddleware");
 
 const router = new Router();
 
-router.post("/", typeController.create);
+router.post("/", checkRole("ADMIN"), typeController.create);
 router.get("/", typeController.getAll);
 
 module.exports = router;
